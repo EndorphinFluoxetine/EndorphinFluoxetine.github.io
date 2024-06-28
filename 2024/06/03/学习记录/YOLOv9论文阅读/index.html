@@ -170,7 +170,7 @@
 <p>(3)  此外，还设计了一种基于梯度路径规划的新型轻量级网络架构——通用高效层聚合网络（GELAN）</p>
 <p>​		“In addition, a new lightweight network architecture – Generalized Efficient Layer Aggregation Network (GELAN), based on gradient path planning is designed.”</p>
 <p>(4)  我们在基于 MS COCO 数据集的目标检测上验证了所提出的 GELAN 和 PGI。 结果表明，与基于深度卷积开发的最先进方法相比，GELAN 仅使用传统的卷积算子即可实现更好的参数利用率。  PGI 可用于从轻型到大型的各种模型。 它可以用来获取完整的信息，<strong>使得从头开始训练的模型能够比使用大数据集预训练的模型获得更好的结果</strong>，对比结果如图所示</p>
-<style>.efjxdimhappc{zoom:80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605092224934.png" class="efjxdimhappc" alt="image-20240605092224934">
+<style>.ryssjfhtirjw{zoom:80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605092224934.png" class="ryssjfhtirjw" alt="image-20240605092224934">
 
 
 
@@ -179,7 +179,7 @@
 <h2 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h2><p>​		这一部分对应上摘要中的第一点，要详细介绍目前研究领域中存在的难以解释的问题，也是本文研究的出发点。</p>
 <p><strong>现存问题：</strong>人们经常将模型收敛的困难归因于梯度消失或梯度爆炸，但现代神经网络已经通过设计归一化和激活函数从根本上解决了这个问题，但收敛速度慢或收敛困难的问题仍然存在。</p>
 <p><strong>原因以及解决方案的出发点：</strong>信息瓶颈(IB)，即原本来自很深网络的每经过一层网络进行变换时都会造成信息丢失，如式(1)所示</p>
-<style>.usvxhbbbbrtk{zoom:80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605092302410.png" class="usvxhbbbbrtk" alt="image-20240605092302410">
+<style>.yqriuxxgkvzr{zoom:80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605092302410.png" class="yqriuxxgkvzr" alt="image-20240605092302410">
 
 
 
@@ -198,7 +198,7 @@
 <p>​		辅助可逆分支：用于生成可靠的梯度，为主分支提供</p>
 <p>​		多层辅助信息：控制主分支学习可规划的多层语义信息</p>
 <p>我们来看图：</p>
-<style>.xjjoyccccicc{zoom: 80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605090629864.png" class="xjjoyccccicc" alt="image-20240605090629864">
+<style>.qxegbpprtusw{zoom: 80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605090629864.png" class="qxegbpprtusw" alt="image-20240605090629864">
 
 <p>​	</p>
 <p>​		图中蓝色的部分就是网络的主分支；</p>
@@ -206,7 +206,7 @@
 <p>​		用红色框圈起来的部分就是多层辅助信息，它的主要作用类似于一个特征金字塔，是做特征融合的，是为了让从三个检测头出来的梯度信息不那么独立。我们直到，YOLO模型有三个检测头，P3 P4 P5，由他们反向传播的梯度信息是相对独立的，分别用于处理大中小型目标。而多层辅助信息的作用就是借助了CBNet的思想，对多层的信息进行了一个特征融合再分发，解决信息独立的问题。</p>
 <p>​		</p>
 <p>网络结构图如下：</p>
-<style>.kqpyyfxznupi{zoom:80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/281430c823c9476b887af8e037e9367f.png" class="kqpyyfxznupi" alt="img">
+<style>.lorhupfkidul{zoom:80%;}</style><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/281430c823c9476b887af8e037e9367f.png" class="lorhupfkidul" alt="img">
 
 <p>10-22层属于多层辅助信息的部分，23-37层都属于辅助可逆分支的部分</p>
 <h3 id="GELAN"><a href="#GELAN" class="headerlink" title="GELAN"></a>GELAN</h3><img src="/2024/06/03/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/YOLOv9%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20240605092330853.png" class="" title="image-20240605092330853">
